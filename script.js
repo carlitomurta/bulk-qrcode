@@ -2,7 +2,13 @@ const QR = require("qrcode-base64");
 const fs = require("fs");
 
 const dir = "./codes";
-const howMany = 1000;
+let from = 0;
+let to = 1;
+
+var args = require("minimist")(process.argv.slice(2));
+
+from = args.from;
+to = args.to;
 
 const bulkCodes = () => {
   if (!fs.existsSync(dir)) {
@@ -14,7 +20,7 @@ const bulkCodes = () => {
     bulkCodes();
     return;
   }
-  for (let index = 0; index < howMany; index++) {
+  for (let index = from; index < to; index++) {
     var imgData = QR.drawImg((index + 1).toString(), {
       typeNumber: 1,
       errorCorrectLevel: "M",

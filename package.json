@@ -9,6 +9,7 @@
   "author": "Carlito Murta",
   "license": "ISC",
   "dependencies": {
+    "minimist": "^1.2.8",
     "qrcode-base64": "^1.0.1"
   }
 }
